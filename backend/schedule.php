@@ -55,7 +55,7 @@ if(mysqli_num_rows($result) > 0) {
     <form method="post" action="<?php echo htmlspecialchars(
         "https://txpg.net/vzlc/backend/dispatch.php"
     ); ?>">
-    <input type="hidden" name="session_id" value="<?php echo $session_id; ?>">
+    <input type="hidden" name="session_id" value="<?php echo htmlentities($session_id); ?>">
     <tr><td colspan="20"><font color=red><Center>Enter time as your <b>local</b> time</Center></td></tr>
     <tr><td><b>Start Time:</b></td><td><input type="datetime-local" name="start_time" required></td></tr>
     <tr><td><b>End Time:</b></td><td><input type="datetime-local" name="end_time" required></td></tr>
