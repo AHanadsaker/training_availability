@@ -28,7 +28,7 @@ if (
     $role == "Super"
 ) {
 
-    $sql = "DELETE FROM types WHERE id ='" . mysqli_real_escape_string($conn, $_GET['id']) ."'";
+    $sql = "DELETE FROM availability WHERE id ='" . mysqli_real_escape_string($conn, $_GET['id']) ."'";
 
     if(mysqli_query($conn, $sql)) {
         header("Location: availability.php");
