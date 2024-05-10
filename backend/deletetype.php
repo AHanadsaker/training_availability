@@ -17,8 +17,6 @@ $sql = "SELECT * from accounts WHERE username = $user";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_assoc($result)) {
-    $firstname = $row["first_name"];
-    $lastname = $row["last_name"];
     $role = $row["role"];
 }
 
