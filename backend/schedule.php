@@ -32,11 +32,11 @@ if(mysqli_num_rows($result) > 0) {
             "https://api.vatusa.net/user/" . $cid . "?apikey=" . $vatusaapi . ""
         ); //data read from json file
         $users = json_decode($data); //decode a data
-        echo $users->data->fname .
+        echo htmlentities($users->data->fname) .
             " " .
-            $users->data->lname .
+            htmlentities($users->data->lname) .
             " (" .
-            $users->data->rating_short .
+            htmlentities($users->data->rating_short) .
             ")";
         echo "</a></td><td>" . $row["type"] . "</td>";
         $start_utc = $row["start"];
