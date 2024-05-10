@@ -1,1 +1,1 @@
-# training_availability
+<h2>Training Availability System</h2>
