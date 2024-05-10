@@ -11,14 +11,12 @@ require "../requires.php";
 include "../style.php";
 $user = $_SESSION["name"];
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-$sql = "SELECT * FROM accounts WHERE username = $user";
-$result = $conn->query($sql);
+$sql = "SELECT * from accounts WHERE username = $user";
+$result = mysqli_query($conn, $sql);
 
-while ($row = $result->fetch_assoc()) {
-    $firstname = $row["first_name"];
-    $lastname = $row["last_name"];
+while($row = mysqli_fetch_assoc($result)) {
     $role = $row["role"];
 }
 
@@ -29,11 +27,10 @@ if (
     $role == "WM" ||
     $role == "Super"
 ) {
-    $bye_session = $_GET["id"];
 
-    $sql = "DELETE FROM availability WHERE id = $bye_session";
+    $sql = "DELETE FROM types WHERE id ='" . mysqli_real_escape_string($conn, $_GET['id']) ."'";
 
-    if ($conn->query($sql) === true) {
+    if(mysqli_query($conn, $sql)) {
         header("Location: availability.php");
     } else {
         echo "This session could not be deleted. Contact the WM for assistance.";
