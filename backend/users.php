@@ -49,7 +49,7 @@ if (
                 ); //data read from json file
                 $users = json_decode($data); //decode a data
                 echo "<tr><td>" . $row["username"] . "</td><td>";
-                echo $users->data->fname . " " . $users->data->lname;
+                echo htmlentities($users->data->fname) . " " . htmlentities($users->data->lname);
                 echo "</td><td>" . $row["role"] . "</td><td>";
                 if ($row["role"] != "Super") {
                     echo "<a title=\"Reset Password\" href=\"#\"><i class=\"fa-solid fa-pencil\"></i></a> <a title=\"Delete User\" href=\"" .
