@@ -109,7 +109,7 @@ if (
          ?>
 <center>
     <table id="customers">
-        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <tr><th colspan="20"><center>Search Trainee Availability</center></th></tr>
         <tr><td>Student CID:</td><td><input type="text" name="cid" maxlength="9" size="10" required></td></tr>
         <tr><td colspan="20"><center><input type="submit" name="submit" value="Submit"></center></td></tr>
