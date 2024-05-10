@@ -11,12 +11,12 @@ require "../requires.php";
 include "../style.php";
 $user = $_SESSION["name"];
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-$sql = "SELECT * FROM accounts WHERE username = $user";
-$result = $conn->query($sql);
+$sql = "SELECT * from accounts WHERE username = $user";
+$result = mysqli_query($conn, $sql);
 
-while ($row = $result->fetch_assoc()) {
+while($row = mysqli_fetch_assoc($result)) {
     $firstname = $row["first_name"];
     $lastname = $row["last_name"];
     $role = $row["role"];
@@ -29,16 +29,15 @@ if (
     $role == "WM" ||
     $role == "Super"
 ) {
-    $bye_type = $_GET["id"];
 
-    $sql = "DELETE FROM types WHERE id = $bye_type";
+    $sql = "DELETE FROM types WHERE id ='" . mysqli_real_escape_string($conn, $_GET['id']) ."'";
 
-    if ($conn->query($sql) === true) {
+    if(mysqli_query($conn, $sql)) {
         header("Location: types.php");
     } else {
         echo "This type could not be deleted. Contact the WM for assistance.";
     }
-    $conn->close();
+    mysqli_close($conn);
 } else {
     echo "You are not permitted to access this page. Contact a Senior Staff member for assistance.";
 } ?>
