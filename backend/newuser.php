@@ -86,7 +86,7 @@ Your username is <b>" .
 ) { ?>
     <table id="customers">
         <tr><th colspan="20"><center>Create User</center></th></tr>
-        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <tr><td><b>VATSIM CID:</b></td><td><input type="text" name="cid" maxlength="9" size="10" required></td></tr>
         <tr><td><b>Role:</b></td><td><select name="role" required>
             <option>Trainer</option>
