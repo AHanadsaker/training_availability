@@ -89,7 +89,7 @@ if (
                         ""
                 ); //data read from json file
                 $trainer = json_decode($data); //decode a data
-                echo $trainer->data->fname . " " . $trainer->data->lname;
+                echo htmlentities($trainer->data->fname) . " " . htmlentities($trainer->data->lname);
                 echo "</td><td>";
                 if ($row["status"] == "1") {
                     echo "<font color=green>Scheduled</font>";
