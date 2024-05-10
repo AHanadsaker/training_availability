@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role == "Super"
 ) { ?>
     <table id="customers">
-        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <tr><td><b>Type Name:</b></td><td><input type="text" name="name" required></td></tr>
         <tr><td colspan="20"><center><input type="submit" name="submit" value="Submit"></center></td></tr>
     </table>
