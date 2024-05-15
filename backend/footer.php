@@ -1,0 +1,2 @@
+<hr>
+<center><a href="<?php echo $core_url ?>/backend">Home</a> | <a href="<?php echo $core_url ?>/backend/resetpw.php">Reset Password</a> | <a href="<?php echo $core_url ?>/backend/logout.php">Logout</a></center>
